@@ -1,0 +1,20 @@
+{
+ "0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d": {
+  "name": "earnUSDe",
+  "base": "USDC",
+  "assets": 40700915.896444365,
+  "usd": 40700915.896444365
+ },
+ "0x277C6A642564A91ff78b008022D65683cEE5CCC5": {
+  "name": "strETH",
+  "base": "ETH",
+  "assets": 85944.06501605932,
+  "usd": 209090110.64943704
+ },
+ "0xDF0fb76Df2c21F79798949A4E886cd22D1C085d7": {
+  "name": "earnUSDc",
+  "base": "USDC",
+  "assets": 15260289.048011,
+  "usd": 15260289.048011
+ }
+}

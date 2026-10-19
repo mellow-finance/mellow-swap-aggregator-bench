@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+# throwaway smoke-test outputs of bench.py
+data/smoke*.jsonl

@@ -1,0 +1,633 @@
+[
+ {
+  "chain": "ethereum",
+  "module": "0x17aeAbfD3cB214A8757bF07D2E248d526c8C4809",
+  "subvault": "0x9AFA4A486B4e9AAA2b36C3C078B789A4Cc329c9E",
+  "vault": "0x2669a8B27B6f957ddb92Dc0ebdec1f112E6079E4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x78592aC3FfE43E011e9B70f1Ee78f0065b30a4F3",
+  "subvault": "0x6CF3eD85932E2eB0f940942E43196DDe3BF9bE38",
+  "vault": "0x576cf925B2F58328a4Bd5A95A74541a90976e1B4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x54873D3134b22cce339b06f6fD01DB628bd507c1",
+  "subvault": "0x88D09e8F4F889a9dCa4Fcb4de18B3AF5856d8D4b",
+  "vault": "0x576cf925B2F58328a4Bd5A95A74541a90976e1B4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xA0Ca8fA2D18E59BFc3E104C7e727557B9565e9C2",
+  "subvault": "0x2C78507C0D378176016e603dFA1623E0D37D8dde",
+  "vault": "0x5E77D4497f34E5Cb51150A7cc4aBFc84f1F145Da",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x1cb790068c9a08392BeA1E47Ca53396fA7811BB6",
+  "subvault": "0x2e2b73616e67c1C3660111baE981483a126e8F7a",
+  "vault": "0xDbC81B33A23375A90c8Ba4039d5738CB6f56fE8d",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x25091725982e83f6aFDf6A17705FeECA5866B864",
+  "subvault": "0x90c983DC732e65DB6177638f0125914787b8Cb78",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x7a57d62b1217Ce5685E26C333741e61b99233E65",
+  "subvault": "0x893aa69FBAA1ee81B536f0FbE3A3453e86290080",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x9c9FFbf11C2a1A28bbB79b1B88AaAf60edeE7ad8",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xc95b806aC073Df930014ac476d26c8ad918f14e0",
+  "subvault": "0x9938A09FeA37bA681A1Bd53D33ddDE2dEBEc1dA0",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x35D482D0BBbb1c2F25d9b12F234883f3224f3198",
+  "subvault": "0x3883d8CdCdda03784908cFa2F34ED2cF1604e4d7",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xCC10F0828CCa52A2384086D0f51715e6Dc49CEfe",
+  "subvault": "0xa49B73bEd3004e2D71047E134e10609bA377DE7E",
+  "vault": "0x3a06B0838fbe48eA54fdB94F9d2E5576E67377D1",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xA0A8AaadFd5baEF39CbDF878e4fA67f298dbeE2B",
+  "subvault": "0x6bf532B45Bae2a17E58D87672B5CFc275cfD8e59",
+  "vault": "0x3a06B0838fbe48eA54fdB94F9d2E5576E67377D1",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xe9329EC18903Bdc6010c28Ea9EA060e10Cc1E882",
+  "subvault": "0x0339FE71d3cdDBf2ed56d144B7B7a966b3296E68",
+  "vault": "0x3a06B0838fbe48eA54fdB94F9d2E5576E67377D1",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x6f2fF661A81c3a1762998a3bb37f7918DBE9086D",
+  "subvault": "0xfB29053ABd670E7065B09D3075771e9e67180C0E",
+  "vault": "0x3a06B0838fbe48eA54fdB94F9d2E5576E67377D1",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xE3B023d3FF076E35448c936dA5e8F6adA6130ca4",
+  "subvault": "0xECf3BDE9f50F71edE67E05050123b64b519DF55C",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x456F0826f9107900C2338eF17a7A81acDc710FD8",
+  "subvault": "0x483B00e3b34057D84CF4fF425eBFa7bAdA9f02de",
+  "vault": "0xA8078af289AE3d52Cb6BeA39c909955ed205ff20",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xff531bf02E98fA092F08A4D8463462bC94d94361",
+  "subvault": "0xb70AC3fEd6ee7A3D2da6Ed9811137444370A0877",
+  "vault": "0x5E0B8E7f6F109CB532AF281d9f6e491829a2A1C4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xFe1111983dBeB1fD3d57A70FE2d4F0A84201E5F2",
+  "subvault": "0x72af63D07abdcB6BaCf6eFC4991a328103A425FA",
+  "vault": "0xC07983aD842AAD331D49A7fcCa837EdDd24FD085",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xD84ac4e225E992dF36b04440835C5C97AefE8942",
+  "subvault": "0xc351ea14C7ae67cfA4edd3a750A209AE9C049684",
+  "vault": "0xa3a586506006421547b0469A0d48aC026aD112f3",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x68c32b2F49c80E0f261994e0979Edad5648D3589",
+  "subvault": "0x8aa55a37B0AacdAA585d024cb6747f55Ce3F9535",
+  "vault": "0xa3a586506006421547b0469A0d48aC026aD112f3",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x48013307B6383a430479918c6877d0BAFd8Bc26b",
+  "subvault": "0xb073274E67C7B73F7DBC9E7dceadcE39487Be1b2",
+  "vault": "0xC0942e9A00927Ebdf7DAa951AE0D7CD6e05F28F3",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x5cb89d56f9D503877453FABa420D126741a1f86b",
+  "subvault": "0xB486193F2CEf1Be47321C10dE77179cf227D00d2",
+  "vault": "0xC0942e9A00927Ebdf7DAa951AE0D7CD6e05F28F3",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x884Eda657E2226873a88D9bd2FCBF52F2eC92D7c",
+  "subvault": "0x763398aAeb05E91aE193e8407717b614218b06Aa",
+  "vault": "0xC7B9AF3cdb0Cc6E50a298037d2fD6789760eb587",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x0660f0e3FF771A5fcaDcD6d74B75D67B853D1183",
+  "subvault": "0xD7AC99d4379dAF6Dad3C31f5b97b3Bf13e678Cc1",
+  "vault": "0x1DDA0c028555e846371655caB6Adf0E3307c29F6",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xa802438DD8F0c9c9AfA66cD889e861aAF0dB00B8",
+  "subvault": "0x9E8Eb7f8894C373E50f735370e21b9C5312f2702",
+  "vault": "0x1DDA0c028555e846371655caB6Adf0E3307c29F6",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x2BC798BE6610df25c0255e4C054cbb35F8e99A71",
+  "subvault": "0x36DC14Eb359132380806867C584e9F03BE43d03D",
+  "vault": "0xd41f177Ec448476d287635CD3AE21457F94c2307",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x6f17900d2f780a5258dbc7209174ab0d3eb31677",
+  "subvault": "0x83CbA096474D3909e664Cd9152a955fc29Efe1AC",
+  "vault": "0x9e065540891bc246F5EA961b6D91b2dF661913Ba",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xa3cD011dBB284a7AB3db27E21AAbf6aB883DB447",
+  "subvault": "0xE464457bEDF32383Fc9c25362DE4753cbEbf6405",
+  "vault": "0x9e065540891bc246F5EA961b6D91b2dF661913Ba",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x2a166aE48F9F1FC27685582a61250011fd5363D8",
+  "subvault": "0xCDfA7EfE670869c6b6be4375654E0b206eF49c89",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xEEA2e005E4A7F37577E1F709F287C525858f5681",
+  "subvault": "0x31A54947B7692314fca08F256494B4272beB2fC0",
+  "vault": "0xdfEc1c89Ff3b45361D9FFBEc4e45f0eBb2098698",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xfc5b0C0458D0684DC813A8186523415e750a0CB0",
+  "subvault": "0xe6b3612552232d21e7F0963FA3914A77D049A46E",
+  "vault": "0xdfEc1c89Ff3b45361D9FFBEc4e45f0eBb2098698",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x687DDd65171EE5fAce8E39A86e8F77aAdAa2F2bB",
+  "subvault": "0x8D771f4753A24B15aF674a79A065a45e687218cB",
+  "vault": "0x515E3Cd72B6dd7c67D3bc624D98dDd3dEB71F7E3",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x873cC5e1857e5cBbf0bCd00055995DFf356c3ed7",
+  "subvault": "0x6ED44fC11dc0713B1a850261F12d9102387557f4",
+  "vault": "0x515E3Cd72B6dd7c67D3bc624D98dDd3dEB71F7E3",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xeCF978995CBa94Ee853eb6Cd4613E798d6D30C5c",
+  "subvault": "0x435EF3530B92d02872cf5DB9078B3333Dc8415D8",
+  "vault": "0x7feee40bF19f82E5aF6032F6e152782eD15EA1a0",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x65137F76dC297fd1695956E298eDd796B8E52061",
+  "subvault": "0x2659D992a4BeD58E05E77074073d76Cbe14cedE0",
+  "vault": "0x7feee40bF19f82E5aF6032F6e152782eD15EA1a0",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xcbAF02a23B501af96Be671c3CdBA030EAdA85Bbd",
+  "subvault": "0xB56BaF4D91856DBf2007d9eeCFCc46a27e66Fa0E",
+  "vault": "0xE971FFEE5db08984e1a2f73223A71392baE769a4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x8b8ab44e6C28137a2358F6FDB8Bbe71b13d971f3",
+  "subvault": "0x31C701dd7C477F4eF783136631e3aF460628f44a",
+  "vault": "0xE971FFEE5db08984e1a2f73223A71392baE769a4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x114dea9b67A31E704dAbE28bed51C49C01940DDf",
+  "subvault": "0xB747b828A22001cAC25243C18408697845C3B68E",
+  "vault": "0xDbC81B33A23375A90c8Ba4039d5738CB6f56fE8d",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x6A322713896F45f3D9404ccd9a89520FAB0bcaB5",
+  "subvault": "0xf37D9264099Fc67448e56e60BC33095F2b2a95d3",
+  "vault": "0x2669a8B27B6f957ddb92Dc0ebdec1f112E6079E4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xeF0C3036A29d6d9d1EC7a8aEe1DbB885C488641A",
+  "subvault": "0x699d09f862e0d3D093b522562c42e9eFBcEE207f",
+  "vault": "0x63a76a4a94cAB1DD49fcf0d7E3FC53a78AC8Ec5C",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xA56ef88a2D196c9A706e084420a9a6B307B1A7Ff",
+  "subvault": "0xC22642ad548183aFbe389dc667d698C60f3D9a22",
+  "vault": "0xa8A3De0c5594A09d0cD4C8abc4e3AaB9BaE03F36",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x9a0D6E96C48640024b8d5BFEe46822A02bd6C528",
+  "subvault": "0xF00eF6a1fb7CA3Bc620f51f2aBd91549DD486DaA",
+  "vault": "0x2669a8B27B6f957ddb92Dc0ebdec1f112E6079E4",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xb1578423A1DB4ede605b718B9B749751e44FF552",
+  "subvault": "0x36d8d9fC89eEB1aBbfc6101Cc23945e79416D9f3",
+  "vault": "0xDbC81B33A23375A90c8Ba4039d5738CB6f56fE8d",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xb6451d4EaEC79fD22b69086a5B760a166bd28C52",
+  "subvault": "0x888d2A3E9B600F360a3386c9D2fEdFa658E7fA29",
+  "vault": "0x277C6A642564A91ff78b008022D65683cEE5CCC5",
+  "match": true,
+  "oracle": "0x7ebaE0B2086Da690A5bf8f9Ea06E290231879B53",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x987aa80bCeed2b9Dd0C0884739C8301C6010C539",
+  "subvault": "0x9757bbb42B3fAAc201d5Ba2374b9Ac62dc77a584",
+  "vault": "0x7207595E4c18a9A829B9dc868F11F3ADd8FCF626",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x82419c84fd5E4ae074b798b65f33ed99AaE637b7",
+  "subvault": "0x0D18b333A11DeD583537eAa9b447A3127A773049",
+  "vault": "0xB6DB39C23158fE36B963d606daA0f59508566DC9",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xd4173FF670B1ad429d3A85af00cdD5C450F96c6C",
+  "subvault": "0x7585770a2d08A276AF5F5980F54eCa8C25e33987",
+  "vault": "0x5b0eD93422E33cAb88Eee1A0Fb70C2c20665a07c",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x19c3C9B4e3bf1b583fC84E63a0b4FcBD5630903B",
+  "subvault": "0x72a169759F9e65522f82C959c9e0572D84a56Fa0",
+  "vault": "0x5b0eD93422E33cAb88Eee1A0Fb70C2c20665a07c",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x957f2895523655E5101Cf25F5189357C3C3c1076",
+  "subvault": "0x5af218A143956BB19258877e2bb517C837F514C8",
+  "vault": "0x5b0eD93422E33cAb88Eee1A0Fb70C2c20665a07c",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xA1d2AF0f8D1f910f6cA7836db5d724A82DF10d79",
+  "subvault": "0x003a456aA12Faa30C146e8c5c0053f385e2584A5",
+  "vault": "0x5b0eD93422E33cAb88Eee1A0Fb70C2c20665a07c",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x41fE0266e0B941855c000E8A51bF42CEd42e77f6",
+  "subvault": "0xf249968da6Fab901A54cf8fF967C891CC185dB1A",
+  "vault": "0x5b0eD93422E33cAb88Eee1A0Fb70C2c20665a07c",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x53E137244d97C8262e0c307363860947623a2237",
+  "subvault": "0xCFdE79D2fcCBaC4E9917B902272520868a2Ca914",
+  "vault": "0xbF9f76bA554eA5DAfBf736320792D87C1eE362aB",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x91FD358d3b2977bb88244953ff4331624cd90846",
+  "subvault": "0xCFdE79D2fcCBaC4E9917B902272520868a2Ca914",
+  "vault": "0xbF9f76bA554eA5DAfBf736320792D87C1eE362aB",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x1320c146F7Faec1C30Af8e4bD40C7e52a306a568",
+  "subvault": "0xCFdE79D2fcCBaC4E9917B902272520868a2Ca914",
+  "vault": "0xbF9f76bA554eA5DAfBf736320792D87C1eE362aB",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xc57119AB443d6DA0CFBe5f119Ee4C939D041c29E",
+  "subvault": "0xB67B1Ad8B787DC21d7fD510A47DFa4B01fc4c4Ad",
+  "vault": "0xC9bEBD41fA68aF65b865CC163F3E81cA8314398b",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x8F2684eec8054FfE7650D627bb27cb53d4239B99",
+  "subvault": "0x35aA2d1453E6B9b8a54bb0fb2f3be64cD26fA346",
+  "vault": "0xC9bEBD41fA68aF65b865CC163F3E81cA8314398b",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xa3E31Ae2E99C62B0531d8C94C8E9D9b23C360332",
+  "subvault": "0xD7b963000b85461Ae3458fb428847e34a921D515",
+  "vault": "0x46c9690085281A7A0de404e9fcC0f7082aeD2336",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x215aec6cE1edaf2b34dC28b0C69BA00d6994ed02",
+  "subvault": "0x675d78dCD13EeAA0C6f7B7f3479a319d94562d93",
+  "vault": "0x46c9690085281A7A0de404e9fcC0f7082aeD2336",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x28c4c26b4d4eA70434906C270cF26B995583c08C",
+  "subvault": "0xD6D3a0f4dd3d48bF3653c0549aac6b3516dD933B",
+  "vault": "0xDF0fb76Df2c21F79798949A4E886cd22D1C085d7",
+  "match": true,
+  "oracle": "0x58f80f4e6367bC1CF548B819F6F0DE5F77BDF797",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x31D8E68a9769aD8E59481aE84992F9b4F4676da2",
+  "subvault": "0xea7998A7d568B4eef52398D56EA4903412Fc5dB0",
+  "vault": "0x42320b19D8B073C7877aa6dEDdEDDe400DCc4B4E",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x9a44dD0436423C28f0B0ED9D89f42023B08c3bf6",
+  "subvault": "0x8a5Ac5C732D2fbec531F589Ae46499Fa98E36267",
+  "vault": "0x42320b19D8B073C7877aa6dEDdEDDe400DCc4B4E",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xcF082957182972187dDA77E181C5a8298208C396",
+  "subvault": "0x8dCEEfBD6E3A9D1Af10C3e3c757Cb32FeB8b3e2a",
+  "vault": "0xDbC81B33A23375A90c8Ba4039d5738CB6f56fE8d",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xD1EE1697e278F9bC73BFFeF4495FB0Cd91B375Cf",
+  "subvault": "0x78B1fDE522103116891C71977AB8f8344b327C77",
+  "vault": "0xDbC81B33A23375A90c8Ba4039d5738CB6f56fE8d",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x79FDD0E9a7E2d5680E51aE86dC880F75dA6BF66f",
+  "subvault": "0x71E2fB1d69f0D1F2f6399Aa16CDc85eE49cF34C0",
+  "vault": "0x03D0E76FdAe41CdA3f478b0EE9dB64c48C903C2e",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x97F890d3642BFe4Db8F7daFa23FF78c9dD133215",
+  "subvault": "0xeC204ADe1773815164e25ffd37aEEC0d6633BF02",
+  "vault": "0x03D0E76FdAe41CdA3f478b0EE9dB64c48C903C2e",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x1ABBef01954e2F58AFa0153A50e78674D5f12F4b",
+  "subvault": "0x6082A97Bbb2e51d5aa429DE7DAa5a7Cb04c1B17A",
+  "vault": "0x0E27abEF8C0390DB326be61Da660cEAb5D7A01c0",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x5174Ef0406083D38fF63EE7A3656878Dbb4E9688",
+  "subvault": "0x2A5fbd9478c6c13F493DFC6f42786fC8C665B737",
+  "vault": "0x6C5430717c0e771cAD29bA8CbcaFd5119E2A3934",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xe49f6A72476b58c4DDA7d1F2613ac660B11Fbc4c",
+  "subvault": "0x6082A97Bbb2e51d5aa429DE7DAa5a7Cb04c1B17A",
+  "vault": "0x0E27abEF8C0390DB326be61Da660cEAb5D7A01c0",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x5bf16805b91b782884D2Cbb8879bd7822D292363",
+  "subvault": "0x14Cc910cD2e43E87deC3b4451a1FB8A20BA615a9",
+  "vault": "0x2C9BD30aa18ABBC6BCC0b045d25bb4944630413B",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xb7e23c3B8e8F85A3342669652030DC170D807354",
+  "subvault": "0x0A636148884cdA513397811962C4D75d334B2D4c",
+  "vault": "0x6b59026041C560916cC5426c64b2578B95d86143",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x7c6C6373924d360ee8302e2B7fBED12077C9Fc03",
+  "subvault": "0xAa6c2db41F44C6bec8038e00C2e7A487EAFBd329",
+  "vault": "0x6b59026041C560916cC5426c64b2578B95d86143",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xfa47b6435A1173C5E76C83B497502Ff4EC7110F1",
+  "subvault": "0x0A636148884cdA513397811962C4D75d334B2D4c",
+  "vault": "0x6b59026041C560916cC5426c64b2578B95d86143",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x4A976f9201F0747910ceBB3F83A3aeb07416d728",
+  "subvault": "0xAa6c2db41F44C6bec8038e00C2e7A487EAFBd329",
+  "vault": "0x6b59026041C560916cC5426c64b2578B95d86143",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xD8E9300d1a838791cC76393fD78B1fD3C73DBEeb",
+  "subvault": "0x6082A97Bbb2e51d5aa429DE7DAa5a7Cb04c1B17A",
+  "vault": "0x0E27abEF8C0390DB326be61Da660cEAb5D7A01c0",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xC99DaA2dC366cFd115130a0b7D21Df01CB5FcF7b",
+  "subvault": "0x31B7d5A2B1CE1871Dd642F6aeCC0Ef68d126B95A",
+  "vault": "0x0cC65147BF7F615A8dD9E78e2c53158F8E01754d",
+  "match": true,
+  "oracle": "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x8781c028328B6f24B04Eb77Ae83512a92406D18a",
+  "subvault": "0x20318749EA9F1B12F3a0D1f528240C043f8Bd133",
+  "vault": "0xd3CcB5c59cDC8089DCE8e711c5da50A62572f422",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xF7F4F2f5Fa9EC7714108AA57D2a4b0349deFD08C",
+  "subvault": "0x20318749EA9F1B12F3a0D1f528240C043f8Bd133",
+  "vault": "0xd3CcB5c59cDC8089DCE8e711c5da50A62572f422",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xf302FB313Faf6AE96Ff59021429eE2ad6da03D0B",
+  "subvault": "0xe02cf8D7B3ce12fC0626346bcA160B548525D807",
+  "vault": "0xDfb8d1fc2F57c4fC2c18E5f5f3983FD710Ae1Fd7",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xBB803284179fD01BAe9a1A7124bc0A5a10E6Abe5",
+  "subvault": "0x8D1089A24ca9ac8f8b57521a0123b9abc92F312e",
+  "vault": "0x27eaEB5ac532240C663310B43a4Dc954074D1a01",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xb078098E5B1f3a6f5b0B4bf09997470daE8bd813",
+  "subvault": "0x44e18042fbc9895E2290691858606beF75Cae771",
+  "vault": "0x004873A13D6fD9EE83b796fCCa7fA91a506a76dE",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0xbeE1D746d5E1f422d5BA537EE9527dBC740B68bA",
+  "subvault": "0xb74b6F96B6021E3C4F2d4F8e3AbB930DCfa6189a",
+  "vault": "0x47bE272F0686Ca39d8Ff18bF72e443d32152D481",
+  "match": false
+ },
+ {
+  "chain": "ethereum",
+  "module": "0x5Ae225092d5ff8118B11CBe91108a5642Ce148f2",
+  "subvault": "0x43DdF55CDb4AB83D97eA9023bF767673A516adE8",
+  "vault": "0x6de438BfbadC1F0Cf5667be2DD4720e79df0Eee7",
+  "match": false
+ },
+ {
+  "chain": "plasma",
+  "module": "0x1818D85D411938667AE13d34f32878F067793FeC",
+  "subvault": "0xbd33C99D72BDfe71BE4eFD5b6B2A42d3Daf96e0f",
+  "vault": "0x3Ce1F83E9c95fc8b60e7ab36B3238A8257710862",
+  "match": false
+ },
+ {
+  "chain": "plasma",
+  "module": "0xf9C8b4D0fBAcCfc341feBC852b750997b4a72fc8",
+  "subvault": "0xbd33C99D72BDfe71BE4eFD5b6B2A42d3Daf96e0f",
+  "vault": "0x3Ce1F83E9c95fc8b60e7ab36B3238A8257710862",
+  "match": false
+ },
+ {
+  "chain": "plasma",
+  "module": "0x351C5644D4d8502385b28Fe3Ef36B44C4b4cEb1c",
+  "subvault": "0xa11BE438F1961dB47F6660BDAF59b05C0200ADC5",
+  "vault": "0x49DAb986A4288bE616f44733d56397d3410fD331",
+  "match": true,
+  "oracle": "0x33E0b3fc976DC9C516926BA48CfC0A9E10a2aAA5",
+  "defaultMultiplier": 99500000
+ },
+ {
+  "chain": "mantle",
+  "module": "0x8b3270b6bC2272126dD350944D17bcB23A32C624",
+  "subvault": "0xdF309792cb9feD4C453fA3B6aC0DDc5FBA8fa7f2",
+  "vault": "0x8e85760747F7280254575F4e911A7a2814Fc266E",
+  "match": false
+ },
+ {
+  "chain": "mantle",
+  "module": "0x0F707393f83F6d16F807a49B73Ca8A2B63a9e78B",
+  "subvault": "0x9d61Ea4833CC36081fD16BF20396fb3b21A23F4D",
+  "vault": "0x699fc7C0CD3941f2be28aBeD604d42d24B856C1B",
+  "match": false
+ },
+ {
+  "chain": "mantle",
+  "module": "0x72b4c5Dc7E7e26BD077d78D5417F0Bf5b86a00EA",
+  "subvault": "0x18b50CbAAf4C48855b29E548E4d0248C71A15392",
+  "vault": "0xF9DD401ff0f806b71dE62a936c34B930d0876022",
+  "match": true,
+  "oracle": "0x47a063CfDa980532267970d478EC340C0F80E8df",
+  "defaultMultiplier": 99500000
+ }
+]
