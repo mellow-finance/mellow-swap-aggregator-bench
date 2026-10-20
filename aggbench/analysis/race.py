@@ -13,14 +13,17 @@ $ estimate: every historical swap (data/swaps.json) is mapped to the nearest ben
 that case's mean gain; summed over the 307-day history and annualized. Also prints the gas a one-tx on-chain race
 (try every route, keep the best) would cost, and the K+F race on stale calldata (+5m/+10m; 0x calldata expires at 300s).
 
-Usage: python3 race.py [results3.jsonl]
+Usage: python3 -m aggbench.analysis.race [results3.jsonl]
 """
 import json
 import statistics
 import sys
 from collections import defaultdict
 
-from common import DATA, annualize_factor, bps, exp_out, fmt, load_prices, load_rows, nearest_size, oracle_bound, pct, sizes_by_pair, usd_in
+from aggbench.config import DATA
+from aggbench.results import exp_out, load_rows, oracle_bound
+from aggbench.stats import bps, fmt, pct
+from aggbench.valuation import annualize_factor, load_prices, nearest_size, sizes_by_pair, usd_in
 
 GAS_PRICE_GWEI = 0.037  # observed in Kyber/Fynd quotes during the benchmark window
 

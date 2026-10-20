@@ -3,20 +3,23 @@
 1. Curator txs (both curator EOAs, Etherscan txlist) carrying Kyber calldata: revert rate per quote->tx delay bucket
    (delay = block time - clientData Timestamp) and gas burned on reverts.
 2. Upper bound: same stale calldata re-simulated at +5/+10 vs t0 with the bench's loose 2% slippage. NOT a real loss —
-   the bot passes minAmountOut ≈ quote - 1 bps (see hist_kyber.py), so such executions revert instead.
+   the bot passes minAmountOut ≈ quote - 1 bps (see aggbench.collect.hist_kyber), so such executions revert instead.
 3. Realistic cost of waiting = -E[min(drift, 0)] of fresh Kyber quotes for the same case between rounds:
    upside above the quote is taken by Kyber, downside is realized (within tolerance, or via revert + re-quote).
    Extrapolated with each historical swap's own delay bucket, size-aware, to $/yr and APR.
 
-Usage: python3 delay_cost.py
+Usage: python3 -m aggbench.analysis.delay_cost
 """
 import json
 import re
 import statistics
 from collections import defaultdict
 
-from common import (CURATOR_EOAS, DATA, annualize_factor, bps, etherscan, load_prices, load_runs, nearest_size, pct, sane,
-                    sizes_by_pair, usd_in, vault_tvls)
+from aggbench.chain import etherscan
+from aggbench.config import CURATOR_EOAS, DATA
+from aggbench.results import load_runs, sane
+from aggbench.stats import bps, pct
+from aggbench.valuation import annualize_factor, load_prices, nearest_size, sizes_by_pair, usd_in, vault_tvls
 
 BUCKETS = (("3-6m", 390), ("6-12m", 750), ("12-20m", 1230))
 

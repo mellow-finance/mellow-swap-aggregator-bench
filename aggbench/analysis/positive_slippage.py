@@ -1,21 +1,22 @@
 """Step 8: how much positive slippage Kyber takes from our vaults, extrapolated to $/yr and APR.
 
 Two estimates:
-  A. actual   on-chain capture rate since Kyber started capturing (data/hist.json from hist_kyber.py):
+  A. actual   on-chain capture rate since Kyber started capturing (data/hist.json from aggbench.collect.hist_kyber):
               captured $ / volume in that window, applied to (a) the average annual volume and (b) the recent run-rate
   B. simulated  Kyber's sink gain in the +5m/+10m re-simulations (production median quote->tx delay is ~8 min),
               size-aware (each historical swap -> nearest benchmarked size) and only for quotes that clear the module
               oracle bound (unusable quotes like USDe->USDC 10M would otherwise dominate)
-APR = annual $ / current TVL (common.vault_tvls).
+APR = annual $ / current TVL (valuation.vault_tvls).
 
-Usage: python3 ps_extrapolate.py
+Usage: python3 -m aggbench.analysis.positive_slippage
 """
 import json
 import statistics
 from collections import defaultdict
 
-from common import (DATA, SURPLUS_SINK, annualize_factor, load_prices, load_runs, nearest_size, sane, sizes_by_pair,
-                    usd_in, vault_tvls)
+from aggbench.config import DATA, SURPLUS_SINK
+from aggbench.results import load_runs, sane
+from aggbench.valuation import annualize_factor, load_prices, nearest_size, sizes_by_pair, usd_in, vault_tvls
 
 SINK = SURPLUS_SINK["kyber"]
 

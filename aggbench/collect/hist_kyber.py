@@ -1,7 +1,7 @@
 """Step 5: what actually happened on our historical Kyber swaps.
 
 For every swap in data/swaps.json:
-  * captured   tokenOut sent to Kyber's surplus collector (common.SURPLUS_SINK["kyber"]) in the same tx receipt
+  * captured   tokenOut sent to Kyber's surplus collector (config.SURPLUS_SINK["kyber"]) in the same tx receipt
   * quote_ts   Kyber's route timestamp and `quoted` = Kyber's quoted AmountOut, both parsed from the router
                calldata's clientData JSON ({"Source":..,"AmountOut":"..","RouteID":..,"Timestamp":..}); in batched txs
                the clientData whose AmountOut is closest to the realized amountOut is used
@@ -19,7 +19,10 @@ import statistics
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 
-from common import DATA, SURPLUS_SINK, load_prices, pct, rpc
+from aggbench.chain import rpc
+from aggbench.config import DATA, SURPLUS_SINK
+from aggbench.stats import pct
+from aggbench.valuation import load_prices
 
 TRANSFER = "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef"
 COLLECTOR = SURPLUS_SINK["kyber"]

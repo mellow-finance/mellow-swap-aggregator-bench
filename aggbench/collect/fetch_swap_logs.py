@@ -5,7 +5,7 @@ Params = (tokenIn, tokenOut, amountIn, minAmountOut, deadline) — all non-index
 Logs come from the Etherscan v2 API (one call per module, paged by 1000) because public RPCs reject
 full-range eth_getLogs. Token symbol/decimals are read from the chain.
 
-Input:  data/modules.json (from discover_modules.py)
+Input:  data/modules.json (aggbench.collect.discover_modules)
 Output: data/swaps.json — one row per swap: chain, module, vault, block, ts, tx, tokens/symbols/decimals,
         amountIn, minAmountOut, router, amountOut (amounts as decimal strings)
 """
@@ -14,7 +14,8 @@ from collections import Counter
 
 from web3 import Web3
 
-from common import DATA, ETHERSCAN_CHAIN_ID, RPCS, etherscan
+from aggbench.chain import etherscan
+from aggbench.config import DATA, ETHERSCAN_CHAIN_ID, RPCS
 
 TOPIC = "0x" + Web3.keccak(text="Swap((address,address,uint256,uint256,uint256),address,uint256)").hex().removeprefix("0x")
 ERC20 = [{"name": n, "type": "function", "stateMutability": "view", "inputs": [], "outputs": [{"type": t}]}

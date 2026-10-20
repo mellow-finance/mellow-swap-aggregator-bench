@@ -1,4 +1,4 @@
-"""Step 4: summary of a bench.py run — works for any set of aggregators found in the file (Kyber is the baseline).
+"""Step 4: summary of a benchmark run (aggbench.bench.run) — works for any set of aggregators found in the file (Kyber is the baseline).
 
 Sections:
   availability     quote returned / clears the module oracle bound / "usable" (clears the bound AND executes at t0)
@@ -7,41 +7,21 @@ Sections:
   head-to-head     every aggregator vs Kyber on cases where BOTH quotes clear the oracle bound:
                    quote, realized at t0 / +5m / +10m (same block per case), reverts
   execution        realized vs own quote, revert share, how often the swapper got more than the quote, and how
-                   much surplus the aggregator's sink (common.SURPLUS_SINK) took
+                   much surplus the aggregator's sink (config.SURPLUS_SINK) took
   per pair         medians per (pair, size): Kyber vs oracle, realized deltas vs Kyber, 0x fee, failures
 
-Usage: python3 analyze.py results3.jsonl
-       python3 analyze.py results.jsonl --override results_fix.jsonl    (first run with the re-run of broken cases)
+Usage: python3 -m aggbench.analysis.summary results3.jsonl
+       python3 -m aggbench.analysis.summary results.jsonl --override results_fix.jsonl    (first run with the re-run of broken cases)
 """
 import argparse
 import statistics
 from collections import Counter, defaultdict
 
-from common import SURPLUS_SINK, aggs_of, bps, exp_out, fmt, load_rows, pct, sane
+from aggbench.results import aggs_of, captured, exp_out, fee_bps_0x, load_rows, sane
+from aggbench.stats import bps, fmt, pct
 
 DELAYS = ("0", "300", "600")
 
-
-def fee_bps_0x(r):
-    """0x volume fee in bps; buyAmount is net of the fee, so add it back to get the gross output."""
-    q = r["quotes"].get("0x", {})
-    if not q.get("fee_amount"):
-        return 0.0
-    if q["fee_token"] == r["case"]["tokenOut"].lower():
-        return q["fee_amount"] / (q["expected_out"] + q["fee_amount"]) * 1e4
-    if q["fee_token"] == r["case"]["tokenIn"].lower():
-        return q["fee_amount"] / r["case"]["amountIn"] * 1e4
-    return None
-
-
-def captured(r, agg, sim):
-    """tokenOut kept by the aggregator's surplus sink in this simulation (0x: minus its own volume fee)."""
-    gain = (sim.get("net_gainers") or {}).get(SURPLUS_SINK.get(agg, ""), 0)
-    if agg == "0x":
-        q = r["quotes"]["0x"]
-        if q.get("fee_token") == r["case"]["tokenOut"].lower():
-            gain -= q.get("fee_amount", 0)
-    return max(gain, 0)
 
 
 def main(rows):

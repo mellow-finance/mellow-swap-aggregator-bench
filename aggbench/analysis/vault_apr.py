@@ -1,15 +1,17 @@
-"""Step 7: APR uplift per vault from the router race (race.py), using each vault's OWN historical swaps.
+"""Step 7: APR uplift per vault from the router race (aggbench.analysis.race), using each vault's OWN historical swaps.
 
-APR uplift (bps) = annualized race gain on the vault's swaps / current vault TVL (common.vault_tvls, on-chain).
+APR uplift (bps) = annualized race gain on the vault's swaps / current vault TVL (valuation.vault_tvls, on-chain).
 Turnover = annual swap volume / TVL — the gain scales linearly with it.
 
-Usage: python3 vault_apr.py [results3.jsonl] [--refresh-tvl]
+Usage: python3 -m aggbench.analysis.vault_apr [results3.jsonl] [--refresh-tvl]
 """
 import json
 import sys
 
-from common import DATA, annualize_factor, load_prices, load_rows, vault_tvls
-from race import dollars, race_case_gains
+from aggbench.config import DATA
+from aggbench.results import load_rows
+from aggbench.valuation import annualize_factor, load_prices, vault_tvls
+from aggbench.analysis.race import dollars, race_case_gains
 
 STRATS = ("K+F", "K+F+0x", "K+F+0x(no fee)")
 

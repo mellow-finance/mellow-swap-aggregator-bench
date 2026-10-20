@@ -5,13 +5,13 @@ interface IERC20 {
     function balanceOf(address) external view returns (uint256);
 }
 
-/// @notice Swap simulator used by bench.py. It is never deployed: bench.py puts its runtime bytecode
-///         (sim_runtime.hex) at the SwapModule address via an eth_simulateV1 state override, so the aggregator
+/// @notice Swap simulator used by aggbench/bench/simulate.py. It is never deployed: its runtime bytecode
+///         (Sim.runtime.hex) is put at the SwapModule address via an eth_simulateV1 state override, so the aggregator
 ///         calldata runs exactly as in production (msg.sender = the module, approve -> router call -> balance delta,
 ///         same as SwapModule.swap).
-/// @dev Rebuild sim_runtime.hex after editing:
-///      forge build --root . --contracts . --out /tmp/sim-out --use 0.8.25 --evm-version cancun
-///      jq -r .deployedBytecode.object /tmp/sim-out/Sim.sol/Sim.json > sim_runtime.hex
+/// @dev Rebuild Sim.runtime.hex after editing (from the repo root):
+///      forge build --root . --contracts contracts --out /tmp/sim-out --use 0.8.25 --evm-version cancun
+///      jq -r .deployedBytecode.object /tmp/sim-out/Sim.sol/Sim.json > contracts/Sim.runtime.hex
 contract Sim {
     address constant ETH = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;
 
@@ -19,7 +19,7 @@ contract Sim {
     /// @return amountOut tokenOut received by this contract (the swapper)
     /// @return gasUsed  gas spent inside the router call
     /// @return inSpent  tokenIn actually pulled by the router
-    /// @return ret      raw router return / revert data (decoded by bench.py on failure)
+    /// @return ret      raw router return / revert data (decoded by simulate.py on failure)
     function run(address tokenIn, address tokenOut, uint256 amountIn, address router, bytes calldata data)
         external
         payable

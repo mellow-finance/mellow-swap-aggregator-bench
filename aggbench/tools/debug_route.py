@@ -1,35 +1,24 @@
 """Debug helper: re-quote one benchmark case on Kyber now and show why its calldata fails (or that it works).
 
-  * callTracer trace (debug_traceCall with the same state overrides as bench.simulate) — prints the top of the
+  * callTracer trace (debug_traceCall with the same state overrides as aggbench.bench.simulate.simulate) — prints the top of the
     call tree and every reverting frame with its revert data; decode selectors with `cast 4byte <selector>`
     (e.g. Kelp's DailyMintLimitExceeded, 1inch/prop-AMM legs failing)
   * --origin-test: execute once with tx.origin = the module and once with tx.origin = a curator EOA (production),
     to rule out tx.origin-gated RFQ / prop-AMM liquidity
 
-Usage: python3 debug_route.py "wstETH->USDT" [--origin-test]
+Usage: python3 -m aggbench.tools.debug_route "wstETH->USDT" [--origin-test]
 """
 import argparse
 
 import requests
-from eth_abi import decode, encode
+from eth_abi import decode
 from web3 import Web3
 
-from bench import KYBER_HEADERS, KYBER_URL, RUN_SELECTOR, SIM_CODE, balance_slot, load_cases, quote_kyber
-from common import CURATOR_EOAS, latest_block, rpc
-
-
-def run_calldata(case, q):
-    return "0x" + (RUN_SELECTOR + encode(["address", "address", "uint256", "address", "bytes"],
-                                         [case["tokenIn"], case["tokenOut"], case["amountIn"], Web3.to_checksum_address(q["to"]),
-                                          bytes.fromhex(q["data"][2:])])).hex()
-
-
-def overrides(case, origin):
-    sender = Web3.to_checksum_address(case["sender"])
-    ov = {origin: {"balance": hex(10**21)}}
-    ov.setdefault(sender, {})["code"] = SIM_CODE  # merge: origin may equal the module
-    ov[case["tokenIn"]] = {"stateDiff": {balance_slot(case["tokenIn"], sender): "0x" + case["amountIn"].to_bytes(32, "big").hex()}}
-    return ov
+from aggbench.bench.quoters import KYBER_HEADERS, KYBER_URL, quote_kyber
+from aggbench.bench.run import load_cases
+from aggbench.bench.simulate import overrides, run_calldata
+from aggbench.chain import latest_block, rpc
+from aggbench.config import CURATOR_EOAS
 
 
 def trace(case):

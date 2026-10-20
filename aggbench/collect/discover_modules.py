@@ -1,11 +1,11 @@
 """Step 1: find the SwapModules that belong to our vaults.
 
 For every chain, enumerate all entities of the SwapModule factory (Factory.entities/entityAt), read
-module.subvault() -> subvault.vault() and keep modules whose vault is in common.VAULTS.
+module.subvault() -> subvault.vault() and keep modules whose vault is in config.VAULTS.
 For matched modules also store the module oracle and the default slippage multiplier (1e8 = 100%).
 
 Output: data/modules.json — one row per factory entity: {chain, module, subvault, vault, match, oracle?, defaultMultiplier?}
-Usage:  python3 discover_modules.py [chain ...]      (default: all chains in common.FACTORIES)
+Usage:  python3 -m aggbench.collect.discover_modules [chain ...]      (default: all chains in config.FACTORIES)
 """
 import json
 import sys
@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from web3 import Web3
 
-from common import DATA, FACTORIES, RPCS, VAULTS
+from aggbench.config import DATA, FACTORIES, RPCS, VAULTS
 
 ABI = [{"name": n, "type": "function", "stateMutability": "view", "inputs": i, "outputs": [{"type": o}]} for n, i, o in [
     ("entities", [], "uint256"), ("entityAt", [{"type": "uint256"}], "address"), ("subvault", [], "address"),

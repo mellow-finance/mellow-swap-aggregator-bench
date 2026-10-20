@@ -8,15 +8,18 @@
    Fynd executed <60s — on the historical volume of pairs/sizes where both routes are usable
 6) the same per pair
 
-Usage: python3 fynd_vs_kyber_delay.py
+Usage: python3 -m aggbench.analysis.fynd_vs_kyber
 """
 import json
 import statistics
 from collections import defaultdict
 
-from common import DATA, annualize_factor, bps, load_prices, load_runs, nearest_size, pct, sane, sizes_by_pair, usd_in, vault_tvls
+from aggbench.config import DATA
+from aggbench.results import load_runs, sane
+from aggbench.stats import bps, pct
+from aggbench.valuation import annualize_factor, load_prices, nearest_size, sizes_by_pair, usd_in, vault_tvls
 
-TOL = -1.0  # bot's module minAmountOut ≈ quote - 1 bps (median, hist_kyber.py)
+TOL = -1.0  # bot's module minAmountOut ≈ quote - 1 bps (median, aggbench.collect.hist_kyber)
 AG = ("kyber", "fynd")
 
 

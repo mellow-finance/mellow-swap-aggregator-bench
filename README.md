@@ -43,6 +43,18 @@ Where each aggregator stands out:
   - Returns absurd syrupUSDT quotes.
   - Has no route for rsETH.
 
+**Matcha** is 0x's consumer front end, not a separate engine:
+- **API.** It has no trading API of its own ("Matcha uses the 0x API"). Matcha Auto runs on 0x Tx Relay.
+- **Not usable from a SwapModule.** Standard mode is a user-wallet tx, and Auto mode needs a user signature, which a
+  SwapModule cannot give (no EIP-1271).
+- **Fees.** 0% on stablecoin ↔ stablecoin, 25 bps on other pairs. It "may capture a portion" of positive slippage.
+
+Applying Matcha's fees to the 0x route (`aggbench.analysis.matcha`):
+- **Stable ↔ stable:** median 0.00, mean **+0.42 bps** vs Kyber; better in 38 cases, worse in 10, ties in 35.
+- **Other pairs:** −25 bps vs Kyber.
+- **Takeaway:** without the API fee, the 0x route beats Kyber on stable pairs. Getting the 0x API fee waived on stables
+  (as Matcha does for its users) would make 0x the best router for those pairs.
+
 Value estimates for the three vaults with swaps (strETH, earnUSDe, earnUSDc; $265M TVL, $2.1B/yr swap volume):
 
 | Scenario | $/yr | APR uplift |
@@ -55,7 +67,7 @@ Value estimates for the three vaults with swaps (strETH, earnUSDe, earnUSDc; $26
 
 ## Scope
 
-- **Vaults.** These are listed in `common.VAULTS`.
+- **Vaults.** These are listed in `aggbench/config.py` (`VAULTS`).
   - Ethereum: `0x277C…` (strETH), `0x6a37…`, `0x014e…`, `0xDF0f…` (earnUSDc), `0x0cC6…` (earnUSDe).
   - Plasma: `0x49DA…`, `0x841e…`.
   - Mantle: `0xF9DD…`.
@@ -108,7 +120,7 @@ the next block.
   found generically: `eth_createAccessList` on `balanceOf(module)` lists candidate slots, and each candidate is
   probe-written until `balanceOf` returns the probe. This works for proxies (USDC) and ERC-7201 layouts.
 - **Sender.** `msg.sender` at the router is the module, as in production. Using a curator EOA as `tx.origin` instead of
-  the module made no difference (`debug_route.py --origin-test`).
+  the module made no difference (`aggbench.tools.debug_route --origin-test`).
 - **Transfers.** `traceTransfers` returns every token transfer. For tokenOut we record transfers that leave the routers
   to third parties, and every address with a **net tokenOut gain** other than the swapper. This is how the
   surplus/fee sinks were found:
@@ -169,13 +181,13 @@ Head-to-head comparisons only use cases where both quotes clear the bound, so ab
 
 ### 8. Historical (on-chain) checks
 
-`hist_kyber.py` reads the receipt and calldata of every historical swap and extracts:
+`aggbench.collect.hist_kyber` reads the receipt and calldata of every historical swap and extracts:
 - tokenOut sent to Kyber's collector — the actual capture: 11 of 43 swaps since 2026-09-01, $331;
 - the quote → execution delay;
 - realized vs Kyber's quoted amount: mean −0.10 bps, worst −2.8;
 - the bot's tolerance.
 
-`delay_cost.py` takes the curators' txs and computes the revert rate by delay. It is 0 of 23 below 60 s, 10–21%
+`aggbench.analysis.delay_cost` takes the curators' txs and computes the revert rate by delay. It is 0 of 23 below 60 s, 10–21%
 between 1 and 20 min, and 27% above 20 min.
 
 ### Limitations
@@ -192,30 +204,40 @@ between 1 and 20 min, and 27% above 20 min.
 
 ## How to run
 
+Run everything from the repo root as modules:
+
 ```bash
 pip install -r requirements.txt
 cp .env.example .env              # or: export BENCH_ENV_FILE=/path/to/existing/.env
 
-python3 discover_modules.py       # 1. modules of our vaults              -> data/modules.json
-python3 fetch_swap_logs.py        # 2. historical Swap events             -> data/swaps.json
-python3 bench.py --rounds 6 --spacing 180 --delays 300,600 --out results3.jsonl   # 3. ~35 min
-python3 analyze.py results3.jsonl # 4. summary tables
-python3 hist_kyber.py             # 5. on-chain history                   -> data/hist.json
-python3 race.py                   # 6. best-of-N race
-python3 vault_apr.py              # 7. TVL and APR uplift of the race      -> data/tvl.json
-python3 ps_extrapolate.py         # 8. Kyber positive slippage, $/yr and APR
-python3 delay_cost.py             # 9. value of executing within 60 s
-python3 fynd_vs_kyber_delay.py    # 10. Fynd vs Kyber by execution delay
-python3 debug_route.py "WETH->rsETH" [--origin-test]   # trace a failing route
+# collect on-chain inputs
+python3 -m aggbench.collect.discover_modules   # modules of our vaults           -> data/modules.json
+python3 -m aggbench.collect.fetch_swap_logs    # historical Swap events          -> data/swaps.json
+python3 -m aggbench.collect.hist_kyber         # Kyber capture, delay, tolerance -> data/hist.json
+
+# live benchmark (~35 min)
+python3 -m aggbench.bench.run --rounds 6 --spacing 180 --delays 300,600 --out results3.jsonl
+
+# analyses
+python3 -m aggbench.analysis.summary results3.jsonl   # availability, latency, head-to-head, reverts, fees
+python3 -m aggbench.analysis.race                     # best-of-N race
+python3 -m aggbench.analysis.vault_apr                # TVL and APR uplift of the race -> data/tvl.json
+python3 -m aggbench.analysis.positive_slippage        # Kyber positive slippage, $/yr and APR
+python3 -m aggbench.analysis.delay_cost               # value of executing within 60 s
+python3 -m aggbench.analysis.fynd_vs_kyber            # Fynd vs Kyber by execution delay
+python3 -m aggbench.analysis.matcha                   # Matcha-equivalent pricing from the 0x results
+
+# debugging
+python3 -m aggbench.tools.debug_route "WETH->rsETH" [--origin-test]   # trace a failing route
 ```
 
-To smoke-test `bench.py`, run `python3 bench.py --max-cases 3 --delays "" --out smoke.jsonl`.
+To smoke-test the benchmark, run `python3 -m aggbench.bench.run --max-cases 3 --delays "" --out smoke.jsonl`.
 
 To reproduce the snapshot above from the committed data:
 
 ```bash
-python3 analyze.py results.jsonl --override results_fix.jsonl
-python3 analyze.py results3.jsonl
+python3 -m aggbench.analysis.summary results.jsonl --override results_fix.jsonl
+python3 -m aggbench.analysis.summary results3.jsonl
 ```
 
 The first window (`results.jsonl`) had a balance-slot bug for 9 cases; those cases were re-run into
@@ -223,11 +245,19 @@ The first window (`results.jsonl`) had a balance-slot bug for 9 cases; those cas
 
 ## Layout
 
-| Path | Contents |
-|---|---|
-| `common.py` | config (vaults, factories, sinks, curator EOAs), RPC/Etherscan helpers, result loader, prices, TVL |
-| `bench.py`, `Sim.sol`, `sim_runtime.hex` | live benchmark and the swap simulator; the rebuild command is in `Sim.sol` |
-| `discover_modules.py`, `fetch_swap_logs.py`, `hist_kyber.py` | on-chain data collection |
-| `analyze.py`, `race.py`, `vault_apr.py`, `ps_extrapolate.py`, `delay_cost.py`, `fynd_vs_kyber_delay.py` | analyses |
-| `debug_route.py` | route tracing helper |
-| `data/` | inputs and raw results of the 2026-10-19 study |
+```
+contracts/
+  Sim.sol               swap simulator placed at the SwapModule address (rebuild command inside)
+  Sim.runtime.hex       its runtime bytecode, used by the simulation
+aggbench/
+  config.py             paths, secrets (.env), vaults, factories, curator EOAs, surplus sinks
+  chain.py              JSON-RPC and Etherscan v2 with retries
+  stats.py              bps / percentile / formatting helpers
+  results.py            loading benchmark results; quote accessors (oracle bound, 0x fee, captured surplus)
+  valuation.py          prices, historical-volume mapping, annualization, vault TVL
+  collect/              discover_modules, fetch_swap_logs, hist_kyber          (on-chain inputs -> data/)
+  bench/                quoters (Kyber / Fynd / 0x API clients), simulate (eth_simulateV1), run (runner, CLI)
+  analysis/             summary, race, vault_apr, positive_slippage, delay_cost, fynd_vs_kyber, matcha
+  tools/                debug_route
+data/                   inputs and raw results of the 2026-10-19 study
+```
